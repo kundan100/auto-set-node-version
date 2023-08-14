@@ -1,10 +1,10 @@
 # auto-set-node-version
-automatically set node version (based on package.json), when 'npm start' command is run
+automatically set node version (based on ```package.json```), when ```npm start``` command is run.
 
 
 ## How to use / consume this npm-package
-1. $ npm install auto-set-node-version@1.0.1 --save-dev
-2. Update your project's package.json file:
+1. ```$ npm install auto-set-node-version@1.0.1 --save-dev```
+2. Update your project's ```package.json``` file:
 ``` json
 "scripts": {
     "prestart": "npm run set-node",
@@ -19,3 +19,8 @@ automatically set node version (based on package.json), when 'npm start' command
 },
 ```
 3. Done!
+
+
+## Compatibility:
+1. ```Windows```: tested & works well.
+2. ```*nix```: NOT supported. Reason: executing nvm as a command in child process doesn't work as it's not a terminal-command but nvm run as shell-function.
