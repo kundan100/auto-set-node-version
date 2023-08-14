@@ -1,6 +1,6 @@
 {
     "name": "auto-set-node-version",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "automatically set node version (based on package.json), when 'npm start' command is run.",
     "main": "index.js",
     "scripts": {
@@ -35,7 +35,7 @@
         "use of package > engines > node"
     ],
     "author": "kundan100",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/kundan100/auto-set-node-version/issues"
     },
