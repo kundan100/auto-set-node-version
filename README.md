@@ -2,7 +2,7 @@
 automatically set node version...
 1. an example code is provided in below section for ease.
 2. When you run npm-script (example taken for ```npm start```),
-3. it reads ```package.json``` for the node vwersion required for your project,
+3. it reads ```package.json``` for the node version required for your project,
 4. and, switches the node version.
 5. Note: Assuming, you are using ```nvm``` for using different node versions.
  
