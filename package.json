@@ -1,6 +1,6 @@
 {
     "name": "auto-set-node-version",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "automatically set node version (based on package.json), when 'npm start' command is run.",
     "main": "index.js",
     "scripts": {
