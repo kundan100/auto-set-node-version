@@ -13,7 +13,7 @@ function setNodeVersion() {
     /*
      * print the OS details
     */
-    getOsType();
+    //getOsType();
     
     /**
      * print current version of nodejs.
@@ -30,28 +30,38 @@ function setNodeVersion() {
     //console.log("nodeVerRequired=", nodeVerRequired);
 
     /**
+     * print machin's OS info..
+    */
+    console.log("Hi, You are using:", os.type());
+
+    /**
      * change the nodejs version if current!=required.
     */
     if (nodeVerCurrent === nodeVerRequired) {
         console.log("You already have the right node verion!");
     } else {
-        child = spawn('nvm', ['use', nodeVerRequired]);
-        //
-        child.stdout.on('data', (data) => {
-            console.log(`stdout: ${data}`);
-        });
+        if (os.type() === 'Windows_NT') {
+            child = spawn('nvm', ['use', nodeVerRequired]);
+            //
+            child.stdout.on('data', (data) => {
+                console.log(`stdout: ${data}`);
+            });
 
-        child.stderr.on('data', (data) => {
-            console.error(`stderr: ${data}`);
-        });
+            child.stderr.on('data', (data) => {
+                console.error(`stderr: ${data}`);
+            });
 
-        child.on('error', (error) => {
-            console.error(`error: ${error.message}`);
-        });
+            child.on('error', (error) => {
+                console.error(`error: ${error.message}`);
+            });
 
-        child.on('close', (code) => {
-            console.log(`child process exited with code ${code}`);
-        });
+            child.on('close', (code) => {
+                console.log(`child process exited with code ${code}`);
+            });
+        } else {
+            console.log("Sorry! auto-set-node-version is not supported on:", os.type());
+            console.log("Please do 'nvm use' manually.");
+        }
     }
 }
 
@@ -68,13 +78,13 @@ function puts(error, stdout, stderr) {
 */
 function getOsType() {
     if (os.type() === 'Linux') {
-        console.log("Hi, Linux.");
+        console.log("Hi, You are using Linux.");
         //exec("node build-linux.js", puts);
     } else if (os.type() === 'Darwin') {
-        console.log("Hi, Darwin");
+        console.log("Hi, You are using Darwin.");
         //exec("node build-mac.js", puts);
     } else if (os.type() === 'Windows_NT') {
-        console.log("Hi, Windows_NT.");
+        console.log("Hi, You are using Windows.");
         //exec("node -v");
     } else {
         throw new Error("Unsupported OS found: " + os.type());
